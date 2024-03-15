@@ -16,7 +16,6 @@ pub struct XtalCalculatorApp {
     crystal: String,
     angle: f32,
     walkoff: f32,
-
 }
 
 impl Default for XtalCalculatorApp {
@@ -63,7 +62,9 @@ impl eframe::App for XtalCalculatorApp {
 
         egui::CentralPanel::default().show(ctx, |ui| {
             // The central panel the region left after adding TopPanel's and SidePanel's
-            ui.heading(RichText::new("Ti:Sapphire Harmonic Generation Crystal Calculator").strong());
+            ui.heading(
+                RichText::new("Ti:Sapphire Harmonic Generation Crystal Calculator").strong(),
+            );
             ui.add_space(VERTICAL_SPACE);
 
             ui.label(INTRO_MESSAGE);
@@ -86,7 +87,6 @@ impl eframe::App for XtalCalculatorApp {
             ui.add_space(VERTICAL_SPACE);
 
             ui.label("Select Harmonic: ");
-
 
             ui.horizontal(|ui| {
                 ui.radio_value(&mut self.harmonic, Harmonic::Second, "Second");
@@ -115,12 +115,9 @@ impl eframe::App for XtalCalculatorApp {
                 ui.label(format!("{:.2}mrad", self.walkoff));
             });
 
-
             ui.with_layout(egui::Layout::bottom_up(egui::Align::LEFT), |ui| {
                 powered_by_egui_and_eframe(ui);
-                ui.hyperlink_to("Source code.",
-                                "https://github.com/RIMS-Code/crystal_angle",
-                );
+                ui.hyperlink_to("Source code.", "https://github.com/RIMS-Code/crystal_angle");
                 egui::warn_if_debug_build(ui);
             });
         });
@@ -131,7 +128,6 @@ impl eframe::App for XtalCalculatorApp {
         eframe::set_value(storage, eframe::APP_KEY, self);
     }
 }
-
 
 fn powered_by_egui_and_eframe(ui: &mut egui::Ui) {
     ui.horizontal(|ui| {
@@ -160,7 +156,6 @@ You can also click and drag on the box.\n
 Next select from the radio buttons if you want to generate a second or third harmonic.";
 
 const VERTICAL_SPACE: f32 = 12.0;
-
 
 fn which_crystal(harmonic: &Harmonic) -> &'static str {
     match harmonic {
