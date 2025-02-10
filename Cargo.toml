@@ -3,7 +3,7 @@ name = "tisa_xtal_calculator"
 version = "0.1.0"
 authors = ["Reto Trappitsch <reto@galactic-forensics.space>"]
 edition = "2021"
-rust-version = "1.81"
+rust-version = "1.72"
 
 
 [dependencies]
